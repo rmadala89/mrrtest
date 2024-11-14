@@ -1,0 +1,28 @@
+kubectl get services -A                        		 # List all services in the namespace
+kubectl get pods --all-namespaces             		 # List all pods in all namespaces
+kubectl get pods -A			      		 # List all pods in all namespaces
+kubectl get pods -o wide                      		 # List all pods in the current namespace, with more details
+kubectl get node -A			      		 # List all node in all namespaces
+kubectl get node -o wide                      		 # List all node in the current namespace, with more details
+kubectl get deployment deploy-service -n namespace       # List a particular deployment
+kubectl get pod -n namespace                 		 # List all pods in the namespace
+kubectl get pod pod-name -n namespace -o yaml 		 # Get a pod's YAML
+kubectl describe nodes -A				 # To check the node information
+kubectl describe pod pod-name -n nnamespace		 # To chekc the pod infromation
+kubectl get configmap myconfig -n nnamespace 		 # List the configmap details
+kubectl get secret my-secret -n nnamespace		 # List the secrets details 
+kubectl get pod -namespace | grep Running	         # List the only Running status pods infromation 
+kubectl get pods --show-labels				 # show the pods lable infromation 
+kubectl exec -it pod-name -n namespace /bin/sh	 # To login to the pod
+kubectl delete po pod-name -n namespace 		 # to delete the pod or to restart the pod
+kubectl delete deployment deploy-name -n namespace 	 # to delete deploy services from the namespace
+kubectl rollout restart deployment -n namespace		 # to restart the deployment service 
+kubectl scale deployment deploy-service -n namespace --replicas=6  #scale up/scale down
+jmap -dump:live,format=b,file=service-name.bin 1  # generate an dump
+kubectl cp pod-name:/apps/deploy-service localpath/service-name(or)file-name -n namespace  #copy dump from pod
+kubectl create secret generic secret-name -n namespace --from-file=./file-name # to crearte an secret
+
+
+https://kubernetes.io/docs/reference/kubectl/quick-reference/  ---- kubernets commonds
+https://docs.apigee.com/private-cloud/v4.18.05/starting-stopping-and-restarting-apigee-edge  -- apigee
+https://docs.apigee.com/private-cloud/v4.18.01/starting-stopping-and-restarting-apigee-edge  -- apigee
